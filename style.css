@@ -5,3 +5,24 @@ input:invalid {
 input:valid {
   border: 2px solid lightgreen;
 }
+
+form {
+  display: flex;
+  background-color: lightsalmon;
+  justify-content: space-between;
+  width: fit-content;
+}
+form ul {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+ form li {
+   display: flex;
+   justify-content: space-between;
+   list-style: none;
+ }
+
+ select {
+   width: 166px;
+ }
