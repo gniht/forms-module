@@ -1,3 +1,7 @@
+// import country_list from "./countries";
+
+const countries = country_list;
+console.log(countries)
 const myForm = document.createElement('form');
 myForm.classList.add('left-card')
 const formList = document.createElement('ul');
@@ -7,7 +11,8 @@ document.body.append(myForm);
 
 const nameLi = mkLabeledInputLi('name', 'text', 'Name:', true);
 const emailLi = mkLabeledInputLi('email', 'email', 'E-mail:', true);
-const countryLi = mkLabeledInputLi('country', 'text', 'Country:');
+const countryLi = mkLabeledInputLi('country', 'select', 'Country:');
+appendCountries(countryLi.children[1], countries);
 const zipcodeLi = mkLabeledInputLi('zipcode', 'number', 'Zip code:');
 const pwLi = mkLabeledInputLi('pwLi', 'password', 'Password:', true);
 const pwConfirmLi = mkLabeledInputLi('pwConfirmLi', 'password', 'Confirm PW:', true);
@@ -36,15 +41,13 @@ submit.addEventListener('click', e => {
 
 
 
-
-
 /* this function is probably not saving much time, but sometimes 
 using JS to make html elements just feels really repetitive */ 
 function mkLabeledInputLi (name, type = 'text', txt = '', req = false) {
   let listItem = document.createElement('li');
 
   let lbl = document.createElement('label');
-  // lbl.setAttribute('for', `${name}`);
+  lbl.setAttribute('for', `${name}`);
   lbl.innerText = txt || name;
 
   let input = document.createElement('input');
@@ -58,4 +61,13 @@ function mkLabeledInputLi (name, type = 'text', txt = '', req = false) {
   listItem.append(lbl, input);
 
   return listItem;
+}
+
+function appendCountries(countrySelectElement, countriesArr) {
+  for(let i = 0; i < countriesArr.length; i++) {
+    let opt = document.createElement('option');
+    opt.innerText = `${countriesArr[i]}`;
+    opt.id = `${countriesArr[i]}`;
+    countrySelectElement.append(opt);
+  }
 }
