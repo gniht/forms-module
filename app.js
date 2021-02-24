@@ -1,16 +1,17 @@
-let myForm = document.createElement('form');
-let formList = document.createElement('ul');
+const myForm = document.createElement('form');
+myForm.classList.add('left-card')
+const formList = document.createElement('ul');
 
 myForm.append(formList);
 document.body.append(myForm);
 
-let nameLi = mkLabeledInputLi('name', 'text', 'Name:');
-let emailLi = mkLabeledInputLi('email', 'email', 'E-mail:');
-let countryLi = mkLabeledInputLi('country', 'text', 'Country:');
-let zipcodeLi = mkLabeledInputLi('zipcode', 'number', 'Zip code:');
-let pwLi = mkLabeledInputLi('pwLi', 'password', 'Password:');
-let pwConfirmLi = mkLabeledInputLi('pwConfirmLi', 'password', 'Confirm PW:');
-let submit = document.createElement('button');
+const nameLi = mkLabeledInputLi('name', 'text', 'Name:');
+const emailLi = mkLabeledInputLi('email', 'email', 'E-mail:');
+const countryLi = mkLabeledInputLi('country', 'text', 'Country:');
+const zipcodeLi = mkLabeledInputLi('zipcode', 'number', 'Zip code:');
+const pwLi = mkLabeledInputLi('pwLi', 'password', 'Password:');
+const pwConfirmLi = mkLabeledInputLi('pwConfirmLi', 'password', 'Confirm PW:');
+const submit = document.createElement('button');
 submit.type = 'submit';
 submit.innerText = 'Submit';
 
