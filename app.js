@@ -2,8 +2,10 @@ import country_list from "./countries.js";
 
 
 const countries = country_list;
-console.log(countries)
 const myForm = document.createElement('form');
+const title = document.createElement('legend');
+title.innerText = 'New User Gateway to Happiness';
+myForm.append(title)
 myForm.classList.add('split-left');
 const formList = document.createElement('ul');
 
@@ -37,12 +39,33 @@ formList.append(
   submit
 );
 
+pwLi.children[1].placeholder = "Enter a valid password...";
+pwConfirmLi.children[1].placeholder = "Confirm password...";
+
 submit.addEventListener('click', e => {
   e.preventDefault();
   let name = nameLi.children[1].value;
+  let email = emailLi.children[1].value;
   let zip = zipcodeLi.children[1].value;
   let pw = pwLi.children[1].value;
-  let pwConfirm = pwConfirmLi.children[1].value;
+  let pwConfirm = pwConfirmLi.children[1].value = "";
+  console.log(emailLi.children[1].checkValidity())
+  if (!name) {
+    alert("Name is required");
+  } else if (!email || !emailLi.children[1].checkValidity()) {
+    alert("A valid Email is required");
+  } else if   (!pw) {
+    alert("You must choose a valid password!")
+  } else {
+    if (pw != pwConfirm) {
+      alert("Password and Confirm PW must match!");
+      pwLi.children[1].value = "";
+      pwConfirmLi.children[1].value = "";
+    }
+  }
+  
+
+
 });
 
 

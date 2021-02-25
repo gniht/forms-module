@@ -26,3 +26,13 @@ form ul {
  select {
    width: 166px;
  }
+
+ legend {
+   font-size: 1.2em;
+   color: mediumpurple;
+   padding: 5px;
+   border-bottom: 1px solid mediumpurple;
+ }
+ button {
+   margin-top: 10px;
+ }
